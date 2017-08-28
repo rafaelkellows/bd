@@ -1,12 +1,12 @@
 {
-  "name": "baseProject",
+  "name": "Bedoo",
   "version": "1.0.0",
   "description": "Base structure to Init, Git and Deploy Projects",
   "main": "Gruntfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Focus Textil",
+  "author": "Rafael Kellows - rafaelkellows@hotmail.com",
   "license": "BSD",
   "dependencies": {
     "grunt": "~0.4.2",

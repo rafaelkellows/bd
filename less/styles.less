@@ -1,3 +1,278 @@
 ﻿@charset "utf-8";
+/* GERAL */
+body, html, div, span, a, ul, li, dl, dt, dd, section, header, p, form, fieldset, button, input{border: none; margin: 0; padding: 0; list-style: none; position: relative; text-decoration: none; outline: none; }
+header, section, footer, aside, nav, main, article, figure, a, img, span, :after, :before { display: block; }
+h1,h2,h3,h4,h5,h6{font-weight: normal !important; margin: 0}
+html object{ display: none; }
+body{ 
+  font-size:100%; background: #404444;
+  *{ font-family: 'Pragati Narrow'; }
+}
 
+/*******************************
+            GLOBAL
+*******************************/
+
+//General Colors
+@yellow-1: #f4ff00;
+@yellow-2: #dede9e;
+@red:    #ff2717;
+@gray-1: #2c2f36;
+@gray-2: #cdced6;
+@gray-3: #52555c;
+@blue-1: #0bc6d4;
+
+.transit{ -webkit-transition: all 0.3s; -o-transition: all 0.3s; transition: all 0.3s; }
+.d-midle{ display: inline-block; vertical-align: middle; }
+.f-left{ float: left; }
+.f-right{ float: right; }
+
+.owl-theme {
+	.owl-controls{
+		position: absolute; bottom: 0; width: 100%;
+	}
+	.owl-dots .owl-dot span{
+		border-radius: 2px; height: 5px; margin: 0 2px; background-color: #efefef;
+	}
+	.owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span{
+		background-color: @blue-1;
+	}
+}
+.owl-theme .owl-controls .owl-nav{
+	position: relative;
+	[class*=owl-]{
+		background: none; position: absolute; top: -94px; color: @gray-2;
+		&:hover{
+			background-color:@blue-1;
+		}
+	}
+	.owl-prev{ left: 0; }
+	.owl-next{ right: 0; }
+}
+/*******************************
+            MAIN
+*******************************/
+html, body{ height: 100%; }
+body{ -webkit-transition: zoom 0.3s; -o-transition: zoom 0.3s; transition: zoom 0.3s; /*background: url('../images/Home-Live.jpg') no-repeat left -30px #404444;*/ }
+main{ 
+  width: 100%; padding-top: 83px;
+  &.fix_level2{
+  	padding-top: 175px;
+  }
+  /*HEADER*/
+  header{
+  	padding: 0.625em 0 0.625em 1.3em; background-color: @gray-1; position: fixed; top: 0; left: 0; z-index: 9; width: 100%; box-sizing: border-box;
+  	h1{
+  		.d-midle;
+  		a{
+  			img{ width: 37px; }
+  		}
+  	}
+  	nav{ 
+  		.d-midle; width: calc(~'100% - 75px'); box-sizing: border-box; margin: 0 0 0.5em 1.2em; 
+  		a{ 
+  			color: #fff; font-size: 24px; font-weight: bold; .d-midle; margin-right: 0.8em;
+  			font{
+  				color: #3dde05; font-size: 21px;
+  			}
+  			&:after{
+  				content: ""; width: 0%; height: 4px; background-color: #efefef; .transit;
+  			}
+  			&:hover{
+	  			&:after{
+	  				width: 100%;
+	  			}
+  			}
+  			&.menu{
+  				width: 35px; font-size: 0; .f-right;
+  				span{
+  					.d-midle; margin:2px 0; width: 100%; height: 5px; background-color: #fff; border-radius: 2px;
+  				}
+  				&:before, &:after{
+  					content:''; .d-midle; margin:2px 0; width: 100%; height: 5px; background-color: #fff; border-radius: 2px;
+  				}
+  			}
+  			&.login{ .f-right; }
+  		}
+  	}
+  }
+  /*SECTIONS*/
+  section{
+  	&.carrossel{
+  		background-color: #000;
+  		.carr_container{
+	  		/*max-width: 480px; margin: 0 auto;*/
+  		}
+  		dl{
+  			dt{
+  				h2{ display: none; }
+  			}
+  		}
+  	}
+  	&.channels{
+  		background-color: #33363e;
+  		ul{
+  			text-align: center;
+  			li{
+  				.d-midle; width: 80px;
+  				a{
+  					padding: 11px 0 27px; margin-bottom: 10px;
+  					span{ 
+  						width: 45px; height: 45px; margin: 0 auto; position: relative;
+  						&:before{
+  							content:''; width: 100%; height: 100%; background:url('../images/sports-icons.png') no-repeat 0 0; position: absolute; top: 0; left: 0; opacity: 1; .transit;
+  						}
+  						&._tenis:before{ background-position: -45px 0; }
+  						&._baseball:before{ background-position: -90px 0; }
+  						&._golf:before{ background-position: -135px 0; }
+  						&._cavalos:before{ background-position: -180px 0; }
+  						&._volei:before{ background-position: -225px 0; }
+  						&:after{
+  							content:''; width: 100%; height: 100%; background:url('../images/sports-icons.png') no-repeat 0 -45px; position: absolute; top: 0; left: 0; opacity: 0; .transit;
+  						}
+  						&._tenis:after{ background-position: -45px -45px; }
+  						&._baseball:after{ background-position: -90px -45px; }
+  						&._golf:after{ background-position: -135px -45px; }
+  						&._cavalos:after{ background-position: -180px -45px; }
+  						&._volei:after{ background-position: -225px -45px; }
+  					}
+  					h3{ .transit; position: absolute; bottom: 0; width: 100%; color: @gray-2; font-size: 24px; font-weight: bottom; text-align: center; }
+  				}
+					&:hover, &.active{
+						a {
+							h3{ color: #fff; }
+  						span{	
+  							&:before{ opacity:0; }
+  							&:after{ opacity:1; }
+							}
+						}
+					}
+  			}
+  		}
+  		&.fixed{ position: fixed; z-index: 9; top: 82px; left: 0; width: 100%; }
+  	}
+  	&.alive_bets{
+  		h4{
+  			padding: 0.719em; background-color: #eb1b06;
+  			span{
+  				color: #fff; font-size: 24px; font-weight: bold;
+  				font{ font-size: 21px; color: #fff; font-weight: normal; }
+  				&.active{
+
+  				}
+  			}
+  		}
+  		> nav{ 
+				height: 47px; margin-top: -47px; padding-left: 65px; line-height: 45px;
+  			a{ .d-midle; color: #fff; font-size: 24px; margin-left: 15px; }
+  		}
+  		article{
+  			width: 100%;  
+  			h5{
+  				background-color: @blue-1; font-size: 24px; color: @gray-1;
+					&:before{
+						content:''; width: 45px; height: 45px; margin: 4px -3px 4px 3px; background:url('../images/sports-icons.png') no-repeat 0 -90px; .d-midle;
+					}
+					&._tenis:before{ background-position: -45px -90px; }
+					&._baseball:before{ background-position: -90px -90px; }
+					&._golf:before{ background-position: -135px -90px; }
+					&._cavalos:before{ background-position: -180px -90px; }
+					&._volei:before{ background-position: -225px -90px; }
+  			}
+  			ul{
+  				&.head{
+  					background-color: #0cb2be; padding: 0.375em;
+  					*{ font-size: 20.5px; color: @gray-1; }
+  					p, ul li{ .d-midle; }
+  					p{ width: 49%; }
+  					ul{
+  						width: 50%; margin-left: -4px; .d-midle;
+  						li{ width: 33.5%; margin-right: -4px; text-align: center; }
+  					} 
+  				}
+  				&.body{
+  					ul{
+  						.d-midle;
+  						&.l-colm{
+  							width: 49%; height: 97px; background-color: @gray-3; border-bottom: 2px solid @gray-1; padding: 0.6em 0.9em; box-sizing: border-box; line-height: 27px;
+  							li{ 
+  								color: @gray-2; font-size: 25.5px; 
+  								span{ .f-right; }
+  								&.time{
+  									font-size: 20.25px; color: @yellow-2;
+  									&:before{
+  										content:''; width: 8px; height: 8px; border-radius: 8px; background-color: @yellow-2; .d-midle; margin: 0 10px 0 -9px;
+  									}
+  									font{ width: 10px; .d-midle; }
+  								}
+  							}
+  						}
+  						&.r-colm{
+  							width: 50%; margin-left: -4px; 
+  							li{ 
+  								width: 33.2%; border-bottom: 2px solid #2c2f36; border-left: 2px solid @gray-1; font-size: 21.75px; color: @yellow-1; .d-midle; text-align: center; margin-right: -4px; 
+  								&:first-child{
+  									border-left: 2px solid #344a54; 
+  								}
+  								a{
+  									color: @yellow-1; .transit;
+  									&:before{
+  										content: ''; height: 95px; .d-midle; width: 1px;
+  									}
+  									&:hover, &.active{
+  										background-color: @blue-1; color: @gray-1;
+  									}
+  								}
+  							}
+  						}
+  					}
+  				}
+  			}
+  		}
+  	}
+  }
+  .bets_msgs{
+  	background-color: #000; box-sizing: border-box; padding: 0.907em; position: fixed; bottom: -100px; left: 0; width: 100%; opacity: 0; .transit; cursor: pointer;
+  	&.open{
+  		bottom: 0; opacity: 1;
+  	}
+  	* { font-size: 21.75px; }
+  	p{ 
+  		color: #fff; .f-left; line-height: 29px;
+  		&:before{
+  			content:''; background:url('../images/seta-esconder.png') no-repeat center center; width: 15px; height: 15px; .d-midle; margin-right: 5px;
+  		}
+  	}
+  	dl{ 
+  		.f-right; 
+  		dt{ color: @blue-1; text-transform: uppercase; .d-midle; }
+  		dd{ width:29px; height:29px; line-height: 29px; text-align: center; margin-left:5px; background-color: @blue-1; color: @gray-1; text-transform: uppercase; .d-midle; }
+  	}
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+	body{
+		zoom:0.8;
+		header{
+			nav{ 
+				margin-left: 0.6em; 
+				a:not(.menu){ font-size: 18.5px; line-height: 18.5px; margin-right: 0.4em; margin-top: 14px; }
+				a.menu{ margin-top: 8px; }
+				a.login{ margin-right: 0.8em; }
+			}
+		}
+		main section.channels ul li a h3, main section.alive_bets > nav a, main section.alive_bets article ul.body ul.l-colm li{ font-size: 18.5px; }
+		.owl-carousel .owl-item img{ height: 125px; margin: 0 auto; }
+	  main.fix_level2{
+	  	padding-top: 175px;
+	  }
+
+	}
+}
+@media screen and (min-width: 480px) {
+	main section.carrossel .carr_container{
+		max-width: 480px; margin: 0 auto;
+	}
+}
 @import url(import.less);

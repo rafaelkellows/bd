@@ -1,361 +1,588 @@
 @charset "utf-8";
-@font-face {
-  font-family: 'WashInfo';
-  src: url('/library/fonts/zyarial/zyarial_0-webfont.eot');
-  src: url('/library/fonts/zyarial/zyarial_0-webfont.eot?#iefix') format('embedded-opentype'), url('/library/fonts/zyarial/zyarial_0-webfont.ttf') format('truetype'), url('/library/fonts/zyarial/zyarial_0-webfont.svg#focusfont_ipadregular') format('svg');
-  font-weight: normal;
-  font-style: normal;
+/* GERAL */
+body,
+html,
+div,
+span,
+a,
+ul,
+li,
+dl,
+dt,
+dd,
+section,
+header,
+p,
+form,
+fieldset,
+button,
+input {
+  border: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  text-decoration: none;
+  outline: none;
+}
+header,
+section,
+footer,
+aside,
+nav,
+main,
+article,
+figure,
+a,
+img,
+span,
+:after,
+:before {
+  display: block;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal !important;
+  margin: 0;
+}
+html object {
+  display: none;
+}
+body {
+  font-size: 100%;
+  background: #404444;
+}
+body * {
+  font-family: 'Pragati Narrow';
 }
 /*******************************
             GLOBAL
 *******************************/
-.s-third {
-  width: 30px;
+.transit {
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
 }
-.s-four {
-  width: 140px;
+.d-midle {
+  display: inline-block;
+  vertical-align: middle;
 }
-.s-one {
-  width: 110px;
+.f-left {
+  float: left;
 }
-.s-five {
-  width: 50px;
+.f-right {
+  float: right;
 }
-.s-eight-five {
-  width: 85px;
+.owl-theme .owl-controls {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
-.top-ten {
-  margin-top: 10px;
+.owl-theme .owl-dots .owl-dot span {
+  border-radius: 2px;
+  height: 5px;
+  margin: 0 2px;
+  background-color: #efefef;
 }
-.m-ten {
-  margin-bottom: 10px;
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-theme .owl-dots .owl-dot:hover span {
+  background-color: #0bc6d4;
 }
-.m-right {
-  margin-right: 10px;
+.owl-theme .owl-controls .owl-nav {
+  position: relative;
 }
-.m-left {
-  margin-left: 10px;
+.owl-theme .owl-controls .owl-nav [class*=owl-] {
+  background: none;
+  position: absolute;
+  top: -94px;
+  color: #cdced6;
 }
+.owl-theme .owl-controls .owl-nav [class*=owl-]:hover {
+  background-color: #0bc6d4;
+}
+.owl-theme .owl-controls .owl-nav .owl-prev {
+  left: 0;
+}
+.owl-theme .owl-controls .owl-nav .owl-next {
+  right: 0;
+}
+/*******************************
+            MAIN
+*******************************/
 html,
 body {
   height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
 }
 body {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 12px;
-  color: #9c9fa0;
-  font-weight: 400;
-  background: #fff;
+  -webkit-transition: zoom 0.3s;
+  -o-transition: zoom 0.3s;
+  transition: zoom 0.3s;
+  /*background: url('../images/Home-Live.jpg') no-repeat left -30px #404444;*/
 }
-body #wrap {
-  position: absolute;
-  left: 0;
+main {
+  width: 100%;
+  padding-top: 83px;
+  /*HEADER*/
+  /*SECTIONS*/
+}
+main.fix_level2 {
+  padding-top: 175px;
+}
+main header {
+  padding: 0.625em 0 0.625em 1.3em;
+  background-color: #2c2f36;
+  position: fixed;
   top: 0;
+  left: 0;
+  z-index: 9;
   width: 100%;
-  height: 100%;
+  box-sizing: border-box;
 }
-body.noscroll {
-  overflow-y: hidden;
+main header h1 {
+  display: inline-block;
+  vertical-align: middle;
 }
-/********************************
-***************************************  IE update  *****************************/
-div.modalie {
-  background: url(../images/modalbackground.png) repeat;
-  height: 100%;
+main header h1 a img {
+  width: 37px;
+}
+main header nav {
+  display: inline-block;
+  vertical-align: middle;
+  width: calc(100% - 75px);
+  box-sizing: border-box;
+  margin: 0 0 0.5em 1.2em;
+}
+main header nav a {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.8em;
+}
+main header nav a font {
+  color: #3dde05;
+  font-size: 21px;
+}
+main header nav a:after {
+  content: "";
+  width: 0%;
+  height: 4px;
+  background-color: #efefef;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+main header nav a:hover:after {
   width: 100%;
-  padding-left: 50%;
-  z-index: 99;
-  position: absolute;
-  display: none;
-  font-family: "Arial";
 }
-.modalie .bg {
-  position: absolute;
-  color: #717171;
-  z-index: 999;
-  margin: 150px -200px auto;
-  background-image: url(../images/bg.png);
-  width: 400px;
-  height: 410px;
-  border: 1px solid #c9c9c9;
-  border-radius: 3px;
-}
-/*header*/
-.modalie .head {
-  height: 80px;
-}
-.modalie .head img {
-  margin-top: 30px;
-  margin-left: 55px;
-  float: left;
-}
-.modalie .head p {
-  font-size: 15px;
-  margin: 20px;
-  float: left;
-  width: 40px;
-}
-.modalie .head a span {
-  margin: 20px;
+main header nav a.menu {
+  width: 35px;
+  font-size: 0;
   float: right;
-  display: block;
-  background-image: url(../images/gui-ie.png);
-  width: 20px;
-  height: 20px;
 }
-.modalie .head a:hover span {
-  background-position: -20px 0px;
+main header nav a.menu span {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 2px 0;
+  width: 100%;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 2px;
 }
-/*Content*/
-.modalie .modalie-content span {
-  margin-top: 20px;
-  float: left;
-  display: block;
-  background: url(../images/gui-ie.png) no-repeat;
-  background-position: 25px -45px;
-  width: 400px;
-  height: 140px;
+main header nav a.menu:before,
+main header nav a.menu:after {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  margin: 2px 0;
+  width: 100%;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 2px;
 }
-.modalie .modalie-content p {
-  line-height: 140%;
-  float: left;
-  font-size: 16px;
-  margin-top: 15px;
-  margin-left: 40px;
-  width: 320px;
+main header nav a.login {
+  float: right;
+}
+main section.carrossel {
+  background-color: #000;
+}
+main section.carrossel .carr_container {
+  /*max-width: 480px; margin: 0 auto;*/
+}
+main section.carrossel dl dt h2 {
+  display: none;
+}
+main section.channels {
+  background-color: #33363e;
+}
+main section.channels ul {
   text-align: center;
 }
-.modalie .modalie-content a {
-  margin-top: 20px;
-  text-decoration: none;
-  margin-left: 30px;
-  float: left;
-  background: url(../images/gui-ie.png);
-  background-position: 0px -190px;
-  width: 340px;
-  height: 40px;
+main section.channels ul li {
+  display: inline-block;
+  vertical-align: middle;
+  width: 80px;
 }
-.modalie .modalie-content a:hover {
-  background-position: 0px -230px;
+main section.channels ul li a {
+  padding: 11px 0 27px;
+  margin-bottom: 10px;
 }
-.modalie .modalie-content a p {
-  margin-left: 10px;
-  margin-top: 10px;
-  text-align: center;
-  color: white;
-}
-.icon {
-  padding: 0px;
+main section.channels ul li a span {
+  width: 45px;
+  height: 45px;
+  margin: 0 auto;
   position: relative;
-  display: block;
-  border: none;
-  outline: none;
-  background: url("../images/sprite.png") top left no-repeat;
 }
-.icon.user-icon {
-  width: 13px;
-  height: 16px;
-  top: 8px;
+main section.channels ul li a span:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: url('../images/sports-icons.png') no-repeat 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+main section.channels ul li a span._tenis:before {
+  background-position: -45px 0;
+}
+main section.channels ul li a span._baseball:before {
+  background-position: -90px 0;
+}
+main section.channels ul li a span._golf:before {
+  background-position: -135px 0;
+}
+main section.channels ul li a span._cavalos:before {
+  background-position: -180px 0;
+}
+main section.channels ul li a span._volei:before {
+  background-position: -225px 0;
+}
+main section.channels ul li a span:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: url('../images/sports-icons.png') no-repeat 0 -45px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+main section.channels ul li a span._tenis:after {
+  background-position: -45px -45px;
+}
+main section.channels ul li a span._baseball:after {
+  background-position: -90px -45px;
+}
+main section.channels ul li a span._golf:after {
+  background-position: -135px -45px;
+}
+main section.channels ul li a span._cavalos:after {
+  background-position: -180px -45px;
+}
+main section.channels ul li a span._volei:after {
+  background-position: -225px -45px;
+}
+main section.channels ul li a h3 {
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: #cdced6;
+  font-size: 24px;
+  font-weight: bottom;
+  text-align: center;
+}
+main section.channels ul li:hover a h3,
+main section.channels ul li.active a h3 {
+  color: #fff;
+}
+main section.channels ul li:hover a span:before,
+main section.channels ul li.active a span:before {
+  opacity: 0;
+}
+main section.channels ul li:hover a span:after,
+main section.channels ul li.active a span:after {
+  opacity: 1;
+}
+main section.channels.fixed {
+  position: fixed;
+  z-index: 9;
+  top: 82px;
+  left: 0;
+  width: 100%;
+}
+main section.alive_bets h4 {
+  padding: 0.719em;
+  background-color: #eb1b06;
+}
+main section.alive_bets h4 span {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+main section.alive_bets h4 span font {
+  font-size: 21px;
+  color: #fff;
+  font-weight: normal;
+}
+main section.alive_bets > nav {
+  height: 47px;
+  margin-top: -47px;
+  padding-left: 65px;
+  line-height: 45px;
+}
+main section.alive_bets > nav a {
+  display: inline-block;
+  vertical-align: middle;
+  color: #fff;
+  font-size: 24px;
+  margin-left: 15px;
+}
+main section.alive_bets article {
+  width: 100%;
+}
+main section.alive_bets article h5 {
+  background-color: #0bc6d4;
+  font-size: 24px;
+  color: #2c2f36;
+}
+main section.alive_bets article h5:before {
+  content: '';
+  width: 45px;
+  height: 45px;
+  margin: 4px -3px 4px 3px;
+  background: url('../images/sports-icons.png') no-repeat 0 -90px;
+  display: inline-block;
+  vertical-align: middle;
+}
+main section.alive_bets article h5._tenis:before {
+  background-position: -45px -90px;
+}
+main section.alive_bets article h5._baseball:before {
+  background-position: -90px -90px;
+}
+main section.alive_bets article h5._golf:before {
+  background-position: -135px -90px;
+}
+main section.alive_bets article h5._cavalos:before {
+  background-position: -180px -90px;
+}
+main section.alive_bets article h5._volei:before {
+  background-position: -225px -90px;
+}
+main section.alive_bets article ul.head {
+  background-color: #0cb2be;
+  padding: 0.375em;
+}
+main section.alive_bets article ul.head * {
+  font-size: 20.5px;
+  color: #2c2f36;
+}
+main section.alive_bets article ul.head p,
+main section.alive_bets article ul.head ul li {
+  display: inline-block;
+  vertical-align: middle;
+}
+main section.alive_bets article ul.head p {
+  width: 49%;
+}
+main section.alive_bets article ul.head ul {
+  width: 50%;
+  margin-left: -4px;
+  display: inline-block;
+  vertical-align: middle;
+}
+main section.alive_bets article ul.head ul li {
+  width: 33.5%;
+  margin-right: -4px;
+  text-align: center;
+}
+main section.alive_bets article ul.body ul {
+  display: inline-block;
+  vertical-align: middle;
+}
+main section.alive_bets article ul.body ul.l-colm {
+  width: 49%;
+  height: 97px;
+  background-color: #52555c;
+  border-bottom: 2px solid #2c2f36;
+  padding: 0.6em 0.9em;
+  box-sizing: border-box;
+  line-height: 27px;
+}
+main section.alive_bets article ul.body ul.l-colm li {
+  color: #cdced6;
+  font-size: 25.5px;
+}
+main section.alive_bets article ul.body ul.l-colm li span {
+  float: right;
+}
+main section.alive_bets article ul.body ul.l-colm li.time {
+  font-size: 20.25px;
+  color: #dede9e;
+}
+main section.alive_bets article ul.body ul.l-colm li.time:before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  background-color: #dede9e;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px 0 -9px;
+}
+main section.alive_bets article ul.body ul.l-colm li.time font {
+  width: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+main section.alive_bets article ul.body ul.r-colm {
+  width: 50%;
+  margin-left: -4px;
+}
+main section.alive_bets article ul.body ul.r-colm li {
+  width: 33.2%;
+  border-bottom: 2px solid #2c2f36;
+  border-left: 2px solid #2c2f36;
+  font-size: 21.75px;
+  color: #f4ff00;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  margin-right: -4px;
+}
+main section.alive_bets article ul.body ul.r-colm li:first-child {
+  border-left: 2px solid #344a54;
+}
+main section.alive_bets article ul.body ul.r-colm li a {
+  color: #f4ff00;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+main section.alive_bets article ul.body ul.r-colm li a:before {
+  content: '';
+  height: 95px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 1px;
+}
+main section.alive_bets article ul.body ul.r-colm li a:hover,
+main section.alive_bets article ul.body ul.r-colm li a.active {
+  background-color: #0bc6d4;
+  color: #2c2f36;
+}
+main .bets_msgs {
+  background-color: #000;
+  box-sizing: border-box;
+  padding: 0.907em;
+  position: fixed;
+  bottom: -100px;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+main .bets_msgs.open {
+  bottom: 0;
+  opacity: 1;
+}
+main .bets_msgs * {
+  font-size: 21.75px;
+}
+main .bets_msgs p {
+  color: #fff;
+  float: left;
+  line-height: 29px;
+}
+main .bets_msgs p:before {
+  content: '';
+  background: url('../images/seta-esconder.png') no-repeat center center;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  vertical-align: middle;
   margin-right: 5px;
 }
-.buttons {
-  background: #7abecc;
-  background-image: -moz-radial-gradient(50% 100%, circle cover, #7abecc, #6ca9b7 60%);
-  background-image: -webkit-radial-gradient(50% 100%, circle cover, #7abecc, #6ca9b7 60%);
-  background-image: -o-radial-gradient(50% 100%, circle cover, #7abecc, #6ca9b7 60%);
-  background-image: -ms-radial-gradient(50% 100%, circle cover, #7abecc, #6ca9b7 60%);
-  background-image: radial-gradient(50% 100%, circle cover, #7abecc, #6ca9b7 60%);
-  outline: none;
-  border: 1px solid #5b8f9e;
-  height: 30px;
-  color: #fff;
-  padding: 0 10px;
-  cursor: pointer;
-  line-height: 30px;
-  transition: background 0.4s ease-out;
-  -webkit-transition: background 0.4s ease-out;
+main .bets_msgs dl {
+  float: right;
 }
-.buttons:hover,
-.buttons.sel {
-  background: #5b8f9e;
+main .bets_msgs dl dt {
+  color: #0bc6d4;
+  text-transform: uppercase;
+  display: inline-block;
+  vertical-align: middle;
 }
-.buttons.buttons-link {
-  height: 28px;
-  display: block;
-}
-#table {
-  width: 100%;
-  max-width: 100%;
-  border-spacing: 0;
-  border-collapse: collapse;
-}
-#table .tab-content {
-  height: auto;
-  width: 100%;
-  /*max-height: 450px;
-		min-height: 450px;*/
-  overflow-x: auto;
-}
-#table a {
-  color: inherit;
-}
-#table a.detail-link {
-  color: #5b8f9e;
-}
-th {
-  text-align: left;
-  font-size: 1.1em;
-  background-color: #eaf5f7;
-  color: #5d4d3c;
-}
-th.hasicon {
+main .bets_msgs dl dd {
+  width: 29px;
+  height: 29px;
+  line-height: 29px;
   text-align: center;
+  margin-left: 5px;
+  background-color: #0bc6d4;
+  color: #2c2f36;
+  text-transform: uppercase;
+  display: inline-block;
+  vertical-align: middle;
 }
-tr {
-  line-height: 3em;
-}
-th,
-td {
-  padding: 2px 10px;
-}
-tbody,
-th {
-  border: 1px solid #d5e7ed;
-}
-.table-striped > tbody > tr:nth-child(even) > td,
-.table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #fbfbfb;
-}
-.sample td,
-.sample th {
-  max-width: 560px;
-}
-/*.table-large{
-	width: 1805px;
-}*/
-.hide {
-  display: none;
-}
-/*****************
-************************* SIZES*************************/
-.third {
-  width: 30px;
-  height: 30px;
-}
-.second {
-  width: 20px;
-  height: 20px;
-}
-.fleft {
-  position: relative;
-  float: left;
-  clear: none;
-  display: block;
-}
-.cover {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-.circle {
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-  behavior: url(pie/PIE.htc);
-}
-.noselect {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.button {
-  border: none;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-}
-.box-sizing {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-}
-.sprite {
-  background: url("../images/sprite.png") top left no-repeat;
-}
-.dialog_alert {
-  width: 85px;
-  height: 67px;
-  background-position: -10px -10px;
-}
-/***************
-*********************HOME e busca
-*****************************************************/
-form {
-  position: relative;
-  float: left;
-  width: 100%;
-}
-.form-group {
-  position: relative;
-  float: left;
-  width: 100%;
-  height: auto;
-}
-.form-control {
-  display: block;
-  float: left;
-  width: 100%;
-  height: 18px;
-  padding: 5px 5px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #07112c;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #d5e7ed;
-}
-.form-control.biggest {
-  float: left;
-  width: 90%;
-  max-width: 390px;
-}
-.form-control.result-form {
-  width: 50%;
-  min-width: 155px;
-  max-width: 600px;
-}
-form .label {
-  font-size: 1.1em;
-  cursor: text;
-}
-form .label-pre {
-  position: absolute;
-  left: 11px;
-  top: 5px;
-}
-form .label-default {
-  font-size: 1.2em;
-}
-/*******************************
-          RESPONSIVE
-*******************************/
-@media (max-width: 600px) {
+@media screen and (min-width: 320px) and (max-width: 480px) {
   body {
-    font-size: 10px;
+    zoom: 0.8;
   }
-  .content .viewport .col-sm-1 {
-    width: 100%;
+  body header nav {
+    margin-left: 0.6em;
+  }
+  body header nav a:not(.menu) {
+    font-size: 18.5px;
+    line-height: 18.5px;
+    margin-right: 0.4em;
+    margin-top: 14px;
+  }
+  body header nav a.menu {
+    margin-top: 8px;
+  }
+  body header nav a.login {
+    margin-right: 0.8em;
+  }
+  body main section.channels ul li a h3,
+  body main section.alive_bets > nav a,
+  body main section.alive_bets article ul.body ul.l-colm li {
+    font-size: 18.5px;
+  }
+  body .owl-carousel .owl-item img {
+    height: 125px;
+    margin: 0 auto;
+  }
+  body main.fix_level2 {
+    padding-top: 175px;
   }
 }
-/*******************************
-     					IE 9
-*******************************/
-/*******************************
-     					IE 8
-*******************************/
+@media screen and (min-width: 480px) {
+  main section.carrossel .carr_container {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+/*@import "components.less";
+@import "elements.less";
+@import "sprite.less";
+@import "form.less";
+@import "responsive.less";
+@import "ie.less";*/
