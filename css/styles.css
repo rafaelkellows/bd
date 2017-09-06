@@ -130,7 +130,8 @@ main {
   /*SECTIONS*/
 }
 main.fix_level2 {
-  padding-top: 175px;
+  padding-top: 225px;
+  /*175px*/
 }
 main header {
   padding: 0.625em 0 0.625em 1.3em;
@@ -141,6 +142,7 @@ main header {
   z-index: 9;
   width: 100%;
   box-sizing: border-box;
+  z-index: 99;
 }
 main header h1 {
   display: inline-block;
@@ -168,7 +170,7 @@ main header nav a font {
   color: #3dde05;
   font-size: 21px;
 }
-main header nav a:after {
+main header nav a span:after {
   content: "";
   width: 0%;
   height: 4px;
@@ -177,7 +179,8 @@ main header nav a:after {
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
-main header nav a:hover:after {
+main header nav a:hover span:after,
+main header nav a.active span:after {
   width: 100%;
 }
 main header nav a.menu {
@@ -208,14 +211,137 @@ main header nav a.menu:after {
 main header nav a.login {
   float: right;
 }
+main header nav.menu {
+  display: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: #2c3030;
+  width: 80%;
+  height: 100%;
+  margin: 0;
+}
+main header nav.menu h2 a {
+  text-align: center;
+  margin: .8em 2.5em .4em;
+}
+main header nav.menu h2 a img {
+  display: inline-block;
+}
+main header nav.menu a {
+  display: block;
+  text-align: right;
+  margin: 1.3em 0.8em;
+  font-size: 27px;
+}
+main header nav.menu a span {
+  display: inline-block;
+}
+main header nav.menu a.close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border: 2px solid #fff;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  margin: .4em;
+}
+main header nav.menu a.close span {
+  font-size: 0;
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+main header nav.menu a.close:before {
+  content: 'X';
+  font-size: 27px;
+  display: inline-block;
+  vertical-align: middle;
+}
+main header nav.menu ul {
+  text-align: right;
+}
+main header nav.menu ul li {
+  display: inline-block;
+  vertical-align: middle;
+}
+main header nav.menu ul li a {
+  margin-top: .8em;
+  margin-bottom: .8em;
+}
+main header nav.menu .divisor {
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  padding: .8em 0.8em .6em;
+  margin: 0;
+}
+main header nav.menu:after {
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 20%;
+  height: 100%;
+  background-color: #000;
+  opacity: .6;
+}
+main header nav.menu .mn_content {
+  overflow: auto;
+  height: calc(100% - 67px);
+}
 main section.carrossel {
   background-color: #000;
 }
 main section.carrossel .carr_container {
   /*max-width: 480px; margin: 0 auto;*/
 }
+main section.carrossel dl {
+  position: relative;
+}
+main section.carrossel dl dt {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
 main section.carrossel dl dt h2 {
-  display: none;
+  font-size: 1.6em;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+main section.carrossel dl dt h3 {
+  font-size: 1em;
+  color: #fff;
+  font-weight: bold !important;
+}
+main section.carrossel dl dd {
+  overflow: hidden;
+}
+main section.carrossel dl.cont-to-left dt {
+  top: .9em;
+  left: 1.1em;
+}
+main section.carrossel dl.cont-to-left dt h2 {
+  padding-right: 35%;
+}
+main section.carrossel dl.cont-to-left dt h3 {
+  padding-right: 35%;
+}
+main section.carrossel dl.cont-to-left dd img {
+  float: right;
+}
+main section.carrossel dl.cont-to-right dt {
+  top: .9em;
+  right: 1.1em;
+}
+main section.carrossel dl.cont-to-right dt h2 {
+  padding-left: 35%;
+  text-align: right;
+}
+main section.carrossel dl.cont-to-right dt h3 {
+  padding-left: 35%;
+  text-align: right;
 }
 main section.channels {
   background-color: #33363e;
@@ -242,7 +368,6 @@ main section.channels ul li a span:before {
   content: '';
   width: 100%;
   height: 100%;
-  background: url('../images/sports-icons.png') no-repeat 0 0;
   position: absolute;
   top: 0;
   left: 0;
@@ -251,26 +376,34 @@ main section.channels ul li a span:before {
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
+main section.channels ul li a span._futebol:before {
+  background: url('../images/svgs/football-lgray.svg') no-repeat 0 0;
+  background-size: contain;
+}
 main section.channels ul li a span._tenis:before {
-  background-position: -45px 0;
+  background: url('../images/svgs/tenis-lgray.svg') no-repeat 0 0;
+  background-size: contain;
 }
 main section.channels ul li a span._baseball:before {
-  background-position: -90px 0;
+  background: url('../images/svgs/baseball-lgray.svg') no-repeat 0 0;
+  background-size: contain;
 }
 main section.channels ul li a span._golf:before {
-  background-position: -135px 0;
+  background: url('../images/svgs/golf-lgray.svg') no-repeat 0 0;
+  background-size: contain;
 }
 main section.channels ul li a span._cavalos:before {
-  background-position: -180px 0;
+  background: url('../images/svgs/cavalos-lgray.svg') no-repeat 0 0;
+  background-size: contain;
 }
 main section.channels ul li a span._volei:before {
-  background-position: -225px 0;
+  background: url('../images/svgs/volei-lgray.svg') no-repeat 0 0;
+  background-size: contain;
 }
 main section.channels ul li a span:after {
   content: '';
   width: 100%;
   height: 100%;
-  background: url('../images/sports-icons.png') no-repeat 0 -45px;
   position: absolute;
   top: 0;
   left: 0;
@@ -279,20 +412,29 @@ main section.channels ul li a span:after {
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
+main section.channels ul li a span._futebol:after {
+  background: url('../images/svgs/football-white.svg') no-repeat 0 0;
+  background-size: contain;
+}
 main section.channels ul li a span._tenis:after {
-  background-position: -45px -45px;
+  background: url('../images/svgs/tenis-white.svg') no-repeat 0 0;
+  background-size: contain;
 }
 main section.channels ul li a span._baseball:after {
-  background-position: -90px -45px;
+  background: url('../images/svgs/baseball-white.svg') no-repeat 0 0;
+  background-size: contain;
 }
 main section.channels ul li a span._golf:after {
-  background-position: -135px -45px;
+  background: url('../images/svgs/golf-white.svg') no-repeat 0 0;
+  background-size: contain;
 }
 main section.channels ul li a span._cavalos:after {
-  background-position: -180px -45px;
+  background: url('../images/svgs/cavalos-white.svg') no-repeat 0 0;
+  background-size: contain;
 }
 main section.channels ul li a span._volei:after {
-  background-position: -225px -45px;
+  background: url('../images/svgs/volei-white.svg') no-repeat 0 0;
+  background-size: contain;
 }
 main section.channels ul li a h3 {
   -webkit-transition: all 0.3s;
@@ -303,7 +445,7 @@ main section.channels ul li a h3 {
   width: 100%;
   color: #cdced6;
   font-size: 24px;
-  font-weight: bottom;
+  font-weight: bold;
   text-align: center;
 }
 main section.channels ul li:hover a h3,
@@ -325,97 +467,116 @@ main section.channels.fixed {
   left: 0;
   width: 100%;
 }
-main section.alive_bets h4 {
+main section.bets h4 {
   padding: 0.719em;
   background-color: #eb1b06;
 }
-main section.alive_bets h4 span {
+main section.bets h4 span {
   color: #fff;
   font-size: 24px;
   font-weight: bold;
 }
-main section.alive_bets h4 span font {
+main section.bets h4 span font {
   font-size: 21px;
   color: #fff;
   font-weight: normal;
 }
-main section.alive_bets > nav {
+main section.bets h4:after {
+  content: "";
+  width: 0%;
+  height: 4px;
+  background-color: #efefef;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+main section.bets > nav {
+  display: none;
   height: 47px;
   margin-top: -47px;
   padding-left: 65px;
-  line-height: 45px;
+  line-height: 40px;
 }
-main section.alive_bets > nav a {
+main section.bets > nav a {
   display: inline-block;
   vertical-align: middle;
   color: #fff;
   font-size: 24px;
   margin-left: 15px;
 }
-main section.alive_bets article {
+main section.bets article {
   width: 100%;
+  display: none;
 }
-main section.alive_bets article h5 {
+main section.bets article h5 {
   background-color: #0bc6d4;
   font-size: 24px;
   color: #2c2f36;
 }
-main section.alive_bets article h5:before {
+main section.bets article h5:before {
   content: '';
   width: 45px;
   height: 45px;
   margin: 4px -3px 4px 3px;
-  background: url('../images/sports-icons.png') no-repeat 0 -90px;
   display: inline-block;
   vertical-align: middle;
 }
-main section.alive_bets article h5._tenis:before {
-  background-position: -45px -90px;
+main section.bets article h5._futebol:before {
+  background: url('../images/svgs/football-dgray.svg') no-repeat 0 0;
+  background-size: contain;
 }
-main section.alive_bets article h5._baseball:before {
-  background-position: -90px -90px;
+main section.bets article h5._tenis:before {
+  background: url('../images/svgs/tenis-dgray.svg') no-repeat 0 0;
+  background-size: contain;
 }
-main section.alive_bets article h5._golf:before {
-  background-position: -135px -90px;
+main section.bets article h5._baseball:before {
+  background: url('../images/svgs/baseball-dgray.svg') no-repeat 0 0;
+  background-size: contain;
 }
-main section.alive_bets article h5._cavalos:before {
-  background-position: -180px -90px;
+main section.bets article h5._golf:before {
+  background: url('../images/svgs/golf-dgray.svg') no-repeat 0 0;
+  background-size: contain;
 }
-main section.alive_bets article h5._volei:before {
-  background-position: -225px -90px;
+main section.bets article h5._cavalos:before {
+  background: url('../images/svgs/cavalos-dgray.svg') no-repeat 0 0;
+  background-size: contain;
 }
-main section.alive_bets article ul.head {
+main section.bets article h5._volei:before {
+  background: url('../images/svgs/volei-dgray.svg') no-repeat 0 0;
+  background-size: contain;
+}
+main section.bets article ul.head {
   background-color: #0cb2be;
   padding: 0.375em;
 }
-main section.alive_bets article ul.head * {
+main section.bets article ul.head * {
   font-size: 20.5px;
   color: #2c2f36;
 }
-main section.alive_bets article ul.head p,
-main section.alive_bets article ul.head ul li {
+main section.bets article ul.head p,
+main section.bets article ul.head ul li {
   display: inline-block;
   vertical-align: middle;
 }
-main section.alive_bets article ul.head p {
+main section.bets article ul.head p {
   width: 49%;
 }
-main section.alive_bets article ul.head ul {
+main section.bets article ul.head ul {
   width: 50%;
   margin-left: -4px;
   display: inline-block;
   vertical-align: middle;
 }
-main section.alive_bets article ul.head ul li {
+main section.bets article ul.head ul li {
   width: 33.5%;
   margin-right: -4px;
   text-align: center;
 }
-main section.alive_bets article ul.body ul {
+main section.bets article ul.body ul {
   display: inline-block;
   vertical-align: middle;
 }
-main section.alive_bets article ul.body ul.l-colm {
+main section.bets article ul.body ul.l-colm {
   width: 49%;
   height: 97px;
   background-color: #52555c;
@@ -424,18 +585,31 @@ main section.alive_bets article ul.body ul.l-colm {
   box-sizing: border-box;
   line-height: 27px;
 }
-main section.alive_bets article ul.body ul.l-colm li {
+main section.bets article ul.body ul.l-colm li {
   color: #cdced6;
   font-size: 25.5px;
 }
-main section.alive_bets article ul.body ul.l-colm li span {
+main section.bets article ul.body ul.l-colm li span {
   float: right;
 }
-main section.alive_bets article ul.body ul.l-colm li.time {
+main section.bets article ul.body ul.l-colm li:nth-child(1) p,
+main section.bets article ul.body ul.l-colm li:nth-child(2) p {
+  overflow: hidden;
+  width: 80%;
+  float: left;
+  word-break: break-all;
+}
+main section.bets article ul.body ul.l-colm li:nth-child(1) span,
+main section.bets article ul.body ul.l-colm li:nth-child(2) span {
+  width: 19%;
+  text-align: center;
+}
+main section.bets article ul.body ul.l-colm li.time {
   font-size: 20.25px;
   color: #dede9e;
+  clear: both;
 }
-main section.alive_bets article ul.body ul.l-colm li.time:before {
+main section.bets article ul.body ul.l-colm li.time:before {
   content: '';
   width: 8px;
   height: 8px;
@@ -445,16 +619,16 @@ main section.alive_bets article ul.body ul.l-colm li.time:before {
   vertical-align: middle;
   margin: 0 10px 0 -9px;
 }
-main section.alive_bets article ul.body ul.l-colm li.time font {
+main section.bets article ul.body ul.l-colm li.time font {
   width: 10px;
   display: inline-block;
   vertical-align: middle;
 }
-main section.alive_bets article ul.body ul.r-colm {
+main section.bets article ul.body ul.r-colm {
   width: 50%;
   margin-left: -4px;
 }
-main section.alive_bets article ul.body ul.r-colm li {
+main section.bets article ul.body ul.r-colm li {
   width: 33.2%;
   border-bottom: 2px solid #2c2f36;
   border-left: 2px solid #2c2f36;
@@ -465,26 +639,50 @@ main section.alive_bets article ul.body ul.r-colm li {
   text-align: center;
   margin-right: -4px;
 }
-main section.alive_bets article ul.body ul.r-colm li:first-child {
+main section.bets article ul.body ul.r-colm li:first-child {
   border-left: 2px solid #344a54;
 }
-main section.alive_bets article ul.body ul.r-colm li a {
+main section.bets article ul.body ul.r-colm li a {
   color: #f4ff00;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
-main section.alive_bets article ul.body ul.r-colm li a:before {
+main section.bets article ul.body ul.r-colm li a:before {
   content: '';
   height: 95px;
   display: inline-block;
   vertical-align: middle;
   width: 1px;
 }
-main section.alive_bets article ul.body ul.r-colm li a:hover,
-main section.alive_bets article ul.body ul.r-colm li a.active {
+main section.bets article ul.body ul.r-colm li a:hover,
+main section.bets article ul.body ul.r-colm li a.active {
   background-color: #0bc6d4;
   color: #2c2f36;
+}
+main section.bets article.active {
+  display: block;
+}
+main section.bets.active h4:after {
+  width: 2.5em;
+}
+main section.bets.active h4 font {
+  display: none;
+}
+main section.bets.active > nav {
+  display: block;
+}
+main section.bets.fixed h4 {
+  position: fixed;
+  top: 175px;
+  width: 100%;
+  z-index: 1;
+}
+main section.bets.fixed > nav {
+  position: fixed;
+  top: 225px;
+  width: 100%;
+  z-index: 1;
 }
 main .bets_msgs {
   background-color: #000;
@@ -500,7 +698,7 @@ main .bets_msgs {
   transition: all 0.3s;
   cursor: pointer;
 }
-main .bets_msgs.open {
+main .bets_msgs.active {
   bottom: 0;
   opacity: 1;
 }
@@ -542,42 +740,195 @@ main .bets_msgs dl dd {
   display: inline-block;
   vertical-align: middle;
 }
-@media screen and (min-width: 320px) and (max-width: 480px) {
+/*******************************
+          RESPONSIVE
+*******************************/
+@media screen and (min-width: 320px) and (max-width: 1280px) {
   body {
-    zoom: 0.8;
+    /*background: url('../images/Home-Live320.jpg') no-repeat left -20px #404444;*/
   }
-  body header nav {
-    margin-left: 0.6em;
+  body main {
+    padding-top: 3.5em;
   }
-  body header nav a:not(.menu) {
-    font-size: 18.5px;
-    line-height: 18.5px;
-    margin-right: 0.4em;
-    margin-top: 14px;
+  body main header {
+    padding: .438em 0 .438em .9em;
   }
-  body header nav a.menu {
-    margin-top: 8px;
+  body main header h1 a img {
+    width: auto;
+    height: 42px;
   }
-  body header nav a.login {
+  body main header nav {
+    margin: 0;
+    padding: 0 0 0 .7em;
+    box-sizing: border-box;
+    width: calc(100% - 2.3em);
+  }
+  body main header nav a:not(.menu) {
+    font-size: 1em;
+    line-height: 1em;
     margin-right: 0.8em;
+    letter-spacing: -0.01em;
+  }
+  body main header nav a font {
+    font-size: 17px;
+  }
+  body main header nav a.menu {
+    /*margin-top: 8px;*/
+    width: 21px;
+  }
+  body main header nav a.menu > span,
+  body main header nav a.menu:before,
+  body main header nav a.menu:after {
+    margin: 1px 0;
+    height: 4px;
+  }
+  body main header nav a.login {
+    margin-right: 0.8em;
+  }
+  body main header nav.menu a {
+    margin-right: 0.8em;
+  }
+  body main header nav.menu a.close {
+    width: 25px;
+    height: 25px;
+    line-height: 24px;
+  }
+  body main header nav.menu h2 a {
+    margin: 1.2em 3.5em 1.2em 1.2em;
+  }
+  body main header nav.menu h2 a img {
+    height: 21px;
+  }
+  body main section.channels {
+    background: none;
+  }
+  body main section.channels ul li {
+    width: 58px;
+  }
+  body main section.channels ul li a {
+    padding: 10px 0 20px;
+    margin-bottom: 7px;
+  }
+  body main section.channels ul li a span {
+    width: 25px;
+    height: 25px;
+  }
+  body main section.channels.fixed {
+    top: 56px;
+    background: #404444;
+  }
+  body main section.bets h4 {
+    padding: 0.375em 0.532em;
+  }
+  body main section.bets h4 span {
+    font-size: 1em;
+  }
+  body main section.bets h4 span font {
+    font-size: 1em;
+    letter-spacing: -0.01em;
+  }
+  body main section.bets article h5 {
+    font-size: 1em;
+  }
+  body main section.bets article h5:before {
+    margin: 6px 3px 4px 9px;
+    width: 18px;
+    height: 25px;
+    background: url('../images/svgs/football-dgray.svg') no-repeat 0 0;
+    background-size: contain;
+  }
+  body main section.bets article ul.head * {
+    font-size: initial;
+  }
+  body main section.bets article ul.head p,
+  body main section.bets article ul.head ul li {
+    font-size: 0.84375em;
+  }
+  body main section.bets article ul.head {
+    padding: 0.125em 0.375em;
+    line-height: 1em;
+  }
+  body main section.bets article ul.head ul li {
+    width: 33.3%;
+  }
+  body main section.bets article ul.body ul.l-colm {
+    height: 65px;
+    padding: .4em .3em .3em 0.6em;
+    line-height: 1.15em;
+    border-bottom: 1px solid #2c2f36;
+  }
+  body main section.bets article ul.body ul.l-colm li {
+    font-size: 1.0625em;
+    letter-spacing: -0.01em;
+  }
+  body main section.bets article ul.body ul.l-colm li:nth-child(1) p,
+  body main section.bets article ul.body ul.l-colm li:nth-child(2) p {
+    height: 1.05em;
+  }
+  body main section.bets article ul.body ul.l-colm li.time {
+    font-size: 0.84375em;
+  }
+  body main section.bets article ul.body ul.l-colm li.time font {
+    width: 6px;
+  }
+  body main section.bets article ul.body ul.l-colm li.time:before {
+    width: .4em;
+    height: .4em;
+    border-radius: .4em;
+    margin: 0 5px 0 -4px;
+  }
+  body main section.bets article ul.body ul.r-colm li {
+    font-size: 0.90625em;
+    width: 33%;
+    border-width: 1px;
+  }
+  body main section.bets article ul.body ul.r-colm li a:before {
+    height: 64px;
+  }
+  body main section.bets > nav {
+    margin-top: -32px;
+    height: 32px;
+    padding-left: 50px;
+    line-height: 28px;
+  }
+  body main section.bets > nav a {
+    font-size: 1em;
+    margin-left: 8px;
+  }
+  body main section.bets.fixed h4 {
+    top: 118px;
+  }
+  body main section.bets.fixed > nav {
+    top: 150px;
+  }
+  body main section.bets.active h4:after {
+    width: 1.7em;
+  }
+  body main.fix_level2 {
+    padding-top: 149px;
+  }
+  body main .bets_msgs {
+    padding: 0.58em 0.907em;
+  }
+  body main .bets_msgs * {
+    font-size: 18px;
   }
   body main section.channels ul li a h3,
   body main section.alive_bets > nav a,
   body main section.alive_bets article ul.body ul.l-colm li {
-    font-size: 18.5px;
+    font-size: 1em;
   }
   body .owl-carousel .owl-item img {
-    height: 125px;
+    height: 99px;
     margin: 0 auto;
   }
-  body main.fix_level2 {
-    padding-top: 175px;
+  body main section.alive_bets > nav {
+    line-height: 45px;
   }
 }
-@media screen and (min-width: 480px) {
-  main section.carrossel .carr_container {
-    max-width: 480px;
-    margin: 0 auto;
+@media screen and (min-width: 641px) {
+  body {
+    font-size: 100%;
   }
 }
 /*@import "components.less";

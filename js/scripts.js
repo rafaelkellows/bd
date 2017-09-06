@@ -2,9 +2,11 @@ $(function(){
 	(function() {
 		var bedoo = {
 	        init: function() {
+	            this.menu();
 	            this.carrossel();
 	            this.channels();
 	            this.toTop();
+	            this.chn_events();
 	            this.bets();
 	        },
 	        loadJson : function () {
@@ -25,80 +27,39 @@ $(function(){
 	        	
 	        },
 	        menu: function() {
-        		var _opnd, _c;
-	        	$('main header nav.menu a').unbind('click').unbind('hover').click(function(){
-	        		//To Full Screen Mode
-	        		if($(this).hasClass('s_fullscreen')){
-	        			if( $('html').hasClass('full') ){
-	        				$('html').removeClass('full');
-	        				$.cookie("fullscreen", false, {expires:1, path:"/"});
-	        			}else{
-	        				$('html').addClass('full');
-	        				$.cookie("fullscreen", true, {expires:1, path:"/"});
-	        			}
-						$("section.carrossel > div").data('owlCarousel').destroy();
-						setTimeout(function(){bedoo.carrossel();},500);
-	        		}
-	        		// less than 600 pixels width
-	        		if( $(window).width() <= 600 ){
-	        			$('main header nav.s_menu, main header nav.s_language, main header nav.s_navg, main header nav.s_acesso').hide();
-	        			
-	        			if( $(this).hasClass('active') ){
-			        		$(this).removeClass('active');
-			        		return;
-		        		}else{
-			        		$('main header nav a').removeClass('active');
-			        		$(this).addClass('active');
-							$('main header nav.'+$(this).attr('data-menu')).show();
-		        		}
-	        		}
-	        	}).hover(
-	        		function(){	        			
-	        			if( $(window).width() > 600 ){
-		        			clearInterval(_c);
-		        			$('main header nav.s_menu, main header nav.s_language, main header nav.s_navg, main header nav.s_acesso').hide();
-			        		$('main header nav a').removeClass('active');
-		        			$('main header nav.'+$(this).attr('data-menu')).show();
-	        				$(this).addClass('active');
-        				}
-	        		},
-	        		function(){
-	        			if( $(window).width() > 600 ){
-		        			_c = setInterval(function(){
-				        		$('main header nav a').removeClass('active');
-		        				$('main header nav.s_menu, main header nav.s_language, main header nav.s_navg, main header nav.s_acesso').hide();
-		        			}, 500);
-	        			}
-	        		}
-	        	);
-	        	$('main header nav').not('.menu').hover(
-	        		function(){ 
-	        			$(this).find('a').hover(function(){$(this).addClass('active');},function(){$(this).removeClass('active');})
-	        			if( $(window).width() > 600 ){
-	        				clearInterval(_c);
-	        			}
-	        		},
-	        		function(){
-	        			if( $(window).width() > 600 ){
-		        			_c = setTimeout(function(){
-		        				$('main header nav.s_menu, main header nav.s_language, main header nav.s_navg, main header nav.s_acesso').hide();
-								$('main header nav a').removeClass('active');
-		        			}, 500);
-	        			}
-	        		}
-	        	)
+				/*if (document.documentElement.clientWidth < 480) { 
+					document.querySelector("meta[name=viewport]").setAttribute('content','width=device-width, initial-scale=0.69, maximum-scale=1.0, user-scalable=0');
+				}*/
+	        	$('main header nav a.menu').click(function(){
+	        		$('main header nav.menu').fadeIn('fast',function(){
+	        			$('main header nav.menu a.close').click(function(){
+	        				$('main header nav.menu').fadeOut('fast');
+	        			});
+	        		});
+	        	});
+	        },
+	        chn_events : function(){
+	        	$('main section.channels ul li a').click(function(){
+	        		var _chn = $(this).attr('for');
+	        		$('main section.channels ul li').removeClass('active');
+	        		$(this).parent().addClass('active');
+					$('main section.bets').addClass('active').find('article').removeClass('active');
+					$('main section.bets article').removeClass('active');
+					$('main section.bets article#cont_'+_chn).addClass('active');
+	        	});
+	        	$('main section.bets article').addClass('active');
 	        },
 	        bets : function(){
         		var _s;
-	        	$('main section.alive_bets article ul.body ul.r-colm li a').click(function(){
+	        	$('main section.bets article ul.body ul.r-colm li a').click(function(){
 	        		$(this).addClass('active');
 	        		$('.bets_msgs').click(function(){
-	        			clearTimeout(_s); $(this).removeClass('open');
-	        		}).addClass('open').find('dd').html( eval($('.bets_msgs dd').html()) + 1 );
+	        			clearTimeout(_s); $(this).removeClass('active');
+	        		}).addClass('active').find('dd').html( eval($('.bets_msgs dd').html()) + 1 );
 
 	        		clearTimeout(_s);
 	        		_s = setTimeout(function(){
-	        			$('.bets_msgs').removeClass('open');
+	        			$('.bets_msgs').removeClass('active');
 	        			clearTimeout(_s);
 	        		},3000);
 	        	});
@@ -107,19 +68,21 @@ $(function(){
 		        var offset = 1;
 		        var duration = 500;
 		        jQuery(window).scroll(function() {
+
 					if( $(window).width() > 480 ){ //&& $(window).width() > 1024 
 						if( jQuery(this).scrollTop() >= 150){
-							$('main').addClass('fix_level2').find('section.channels').addClass('fixed');
+							$('main').addClass('fix_level2').find('section.channels, section.bets').addClass('fixed');
 						}else{
-							$('main').removeClass('fix_level2').find('section.channels').removeClass('fixed');
+							$('main').removeClass('fix_level2').find('section.channels, section.bets').removeClass('fixed');
 						}
 					}else{
 						if( jQuery(this).scrollTop() >= 99){
-							$('main').addClass('fix_level2').find('section.channels').addClass('fixed');
+							$('main').addClass('fix_level2').find('section.channels, section.bets').addClass('fixed');
 						}else{
-							$('main').removeClass('fix_level2').find('section.channels').removeClass('fixed');
+							$('main').removeClass('fix_level2').find('section.channels, section.bets').removeClass('fixed');
 						}
 					}
+
 				});
 	        },
 	        carrossel: function() {
@@ -135,11 +98,8 @@ $(function(){
 				        0:{
 				            items:1
 				        },
-				        600:{
-				            items:1
-				        },
-				        1000:{
-				            items:1
+				        640:{
+				            items:2
 				        }
 				    },
 					autoPlay:5000

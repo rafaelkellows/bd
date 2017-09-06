@@ -57,11 +57,11 @@ body{ -webkit-transition: zoom 0.3s; -o-transition: zoom 0.3s; transition: zoom 
 main{ 
   width: 100%; padding-top: 83px;
   &.fix_level2{
-  	padding-top: 175px;
+  	padding-top: 225px; /*175px*/
   }
   /*HEADER*/
   header{
-  	padding: 0.625em 0 0.625em 1.3em; background-color: @gray-1; position: fixed; top: 0; left: 0; z-index: 9; width: 100%; box-sizing: border-box;
+  	padding: 0.625em 0 0.625em 1.3em; background-color: @gray-1; position: fixed; top: 0; left: 0; z-index: 9; width: 100%; box-sizing: border-box; z-index: 99;
   	h1{
   		.d-midle;
   		a{
@@ -74,13 +74,17 @@ main{
   			color: #fff; font-size: 24px; font-weight: bold; .d-midle; margin-right: 0.8em;
   			font{
   				color: #3dde05; font-size: 21px;
-  			}
-  			&:after{
-  				content: ""; width: 0%; height: 4px; background-color: #efefef; .transit;
-  			}
-  			&:hover{
-	  			&:after{
-	  				width: 100%;
+  			} 
+  			span{
+  				&:after{
+	  				content: ""; width: 0%; height: 4px; background-color: #efefef; .transit;
+	  			}
+	  		}
+  			&:hover, &.active{
+  				span{
+		  			&:after{
+		  				width: 100%;
+		  			}
 	  			}
   			}
   			&.menu{
@@ -94,6 +98,40 @@ main{
   			}
   			&.login{ .f-right; }
   		}
+  		&.menu{
+  			display:none; position: fixed; right: 0; top: 0; background-color: #2c3030; width: 80%; height: 100%; margin: 0;
+  			h2 a{ 
+  				text-align: center; margin: .8em 2.5em .4em;
+  				img{ display: inline-block; }
+  			}
+  			a{ 
+  				display: block; text-align: right; margin: 1.3em 0.8em; font-size: 27px;
+  				span{ display: inline-block; }
+  				&.close{
+  					position: absolute; right: 10px; top: 10px; border: 2px solid #fff; width: 30px; height: 30px; text-align: center; margin: .4em;
+  					span{ font-size: 0; height: 100%; .d-midle; }
+  					&:before{
+  						content: 'X'; font-size: 27px; .d-midle;
+  					}
+  				}
+  			}
+  			ul{
+  				text-align: right;
+  				li{ 
+  					.d-midle; 
+  					a{ margin-top: .8em; margin-bottom: .8em; }
+  				}
+  			}
+  			.divisor{
+  				border-top:1px solid #fff; border-bottom: 1px solid #fff; padding: .8em 0.8em .6em; margin: 0;
+  			}
+  			&:after{
+  				content: ''; position: fixed; left: 0; top: 0; width: 20%; height: 100%; background-color: #000; opacity: .6; 
+  			}
+  			.mn_content{
+  				overflow: auto; height: calc(~'100% - 67px'); 
+  			}
+  		}
   	}
   }
   /*SECTIONS*/
@@ -104,9 +142,32 @@ main{
 	  		/*max-width: 480px; margin: 0 auto;*/
   		}
   		dl{
+        position: relative;
   			dt{
-  				h2{ display: none; }
+          position: absolute; z-index: 2; width: 100%; height: 100%;
+          h2{ font-size: 1.6em; color:#fff; letter-spacing: -0.01em; }
+          h3{ font-size: 1em; color:#fff; font-weight: bold !important; }
   			}
+        dd{
+          overflow: hidden;
+        }
+        &.cont-to-left{
+          dt{ 
+            top: .9em; left: 1.1em;
+            h2{ padding-right: 35%; }
+            h3{ padding-right: 35%; }
+          }
+          dd{
+            img{ float: right; } 
+          }
+        }
+        &.cont-to-right{
+          dt{ 
+            top: .9em; right: 1.1em;
+            h2{ padding-left: 35%; text-align: right; }
+            h3{ padding-left: 35%; text-align: right; }
+          }
+        }
   		}
   	}
   	&.channels{
@@ -120,23 +181,50 @@ main{
   					span{ 
   						width: 45px; height: 45px; margin: 0 auto; position: relative;
   						&:before{
-  							content:''; width: 100%; height: 100%; background:url('../images/sports-icons.png') no-repeat 0 0; position: absolute; top: 0; left: 0; opacity: 1; .transit;
+  							content:''; width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 1; .transit;
   						}
-  						&._tenis:before{ background-position: -45px 0; }
-  						&._baseball:before{ background-position: -90px 0; }
-  						&._golf:before{ background-position: -135px 0; }
-  						&._cavalos:before{ background-position: -180px 0; }
-  						&._volei:before{ background-position: -225px 0; }
+              &._futebol:before{ 
+                background:url('../images/svgs/football-lgray.svg') no-repeat 0 0; background-size: contain; 
+              }
+              &._tenis:before{ 
+                background:url('../images/svgs/tenis-lgray.svg') no-repeat 0 0; background-size: contain; 
+              }
+  						&._baseball:before{ 
+                background:url('../images/svgs/baseball-lgray.svg') no-repeat 0 0; background-size: contain;  
+              }
+  						&._golf:before{ 
+                background:url('../images/svgs/golf-lgray.svg') no-repeat 0 0; background-size: contain;  
+              }
+  						&._cavalos:before{ 
+                background:url('../images/svgs/cavalos-lgray.svg') no-repeat 0 0; background-size: contain;  
+              }
+  						&._volei:before{ 
+                background:url('../images/svgs/volei-lgray.svg') no-repeat 0 0; background-size: contain;  
+              }
+
   						&:after{
-  							content:''; width: 100%; height: 100%; background:url('../images/sports-icons.png') no-repeat 0 -45px; position: absolute; top: 0; left: 0; opacity: 0; .transit;
+  							content:''; width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0; .transit;
   						}
-  						&._tenis:after{ background-position: -45px -45px; }
-  						&._baseball:after{ background-position: -90px -45px; }
-  						&._golf:after{ background-position: -135px -45px; }
-  						&._cavalos:after{ background-position: -180px -45px; }
-  						&._volei:after{ background-position: -225px -45px; }
+              &._futebol:after{ 
+                background:url('../images/svgs/football-white.svg') no-repeat 0 0; background-size: contain; 
+              }
+              &._tenis:after{ 
+                background:url('../images/svgs/tenis-white.svg') no-repeat 0 0; background-size: contain; 
+              }
+              &._baseball:after{ 
+                background:url('../images/svgs/baseball-white.svg') no-repeat 0 0; background-size: contain;  
+              }
+              &._golf:after{ 
+                background:url('../images/svgs/golf-white.svg') no-repeat 0 0; background-size: contain;  
+              }
+              &._cavalos:after{ 
+                background:url('../images/svgs/cavalos-white.svg') no-repeat 0 0; background-size: contain;  
+              }
+              &._volei:after{ 
+                background:url('../images/svgs/volei-white.svg') no-repeat 0 0; background-size: contain;  
+              }
   					}
-  					h3{ .transit; position: absolute; bottom: 0; width: 100%; color: @gray-2; font-size: 24px; font-weight: bottom; text-align: center; }
+  					h3{ .transit; position: absolute; bottom: 0; width: 100%; color: @gray-2; font-size: 24px; font-weight: bold; text-align: center; }
   				}
 					&:hover, &.active{
 						a {
@@ -151,7 +239,7 @@ main{
   		}
   		&.fixed{ position: fixed; z-index: 9; top: 82px; left: 0; width: 100%; }
   	}
-  	&.alive_bets{
+  	&.bets{
   		h4{
   			padding: 0.719em; background-color: #eb1b06;
   			span{
@@ -161,23 +249,45 @@ main{
 
   				}
   			}
+				&:after{
+			    content: "";
+			    width: 0%;
+			    height: 4px;
+			    background-color: #efefef;
+			    -webkit-transition: all 0.3s;
+			    -o-transition: all 0.3s;
+			    transition: all 0.3s;
+ 				}
   		}
   		> nav{ 
-				height: 47px; margin-top: -47px; padding-left: 65px; line-height: 45px;
+				display:none; height: 47px; margin-top: -47px; padding-left: 65px; line-height: 40px;
   			a{ .d-midle; color: #fff; font-size: 24px; margin-left: 15px; }
   		}
   		article{
-  			width: 100%;  
+  			width: 100%; display: none;
   			h5{
   				background-color: @blue-1; font-size: 24px; color: @gray-1;
 					&:before{
-						content:''; width: 45px; height: 45px; margin: 4px -3px 4px 3px; background:url('../images/sports-icons.png') no-repeat 0 -90px; .d-midle;
+						content:''; width: 45px; height: 45px; margin: 4px -3px 4px 3px; .d-midle;
 					}
-					&._tenis:before{ background-position: -45px -90px; }
-					&._baseball:before{ background-position: -90px -90px; }
-					&._golf:before{ background-position: -135px -90px; }
-					&._cavalos:before{ background-position: -180px -90px; }
-					&._volei:before{ background-position: -225px -90px; }
+          &._futebol:before{ 
+            background:url('../images/svgs/football-dgray.svg') no-repeat 0 0; background-size: contain; 
+          }
+          &._tenis:before{ 
+            background:url('../images/svgs/tenis-dgray.svg') no-repeat 0 0; background-size: contain; 
+          }
+          &._baseball:before{ 
+            background:url('../images/svgs/baseball-dgray.svg') no-repeat 0 0; background-size: contain;  
+          }
+          &._golf:before{ 
+            background:url('../images/svgs/golf-dgray.svg') no-repeat 0 0; background-size: contain;  
+          }
+          &._cavalos:before{ 
+            background:url('../images/svgs/cavalos-dgray.svg') no-repeat 0 0; background-size: contain;  
+          }
+          &._volei:before{ 
+            background:url('../images/svgs/volei-dgray.svg') no-repeat 0 0; background-size: contain;  
+          }
   			}
   			ul{
   				&.head{
@@ -198,8 +308,14 @@ main{
   							li{ 
   								color: @gray-2; font-size: 25.5px; 
   								span{ .f-right; }
+                  &:nth-child(1), &:nth-child(2){
+                    p{
+                      overflow: hidden; width: 80%; float: left; word-break: break-all;
+                    }
+                    span{ width: 19%; text-align: center; }
+                  }
   								&.time{
-  									font-size: 20.25px; color: @yellow-2;
+  									font-size: 20.25px; color: @yellow-2; clear: both;
   									&:before{
   										content:''; width: 8px; height: 8px; border-radius: 8px; background-color: @yellow-2; .d-midle; margin: 0 10px 0 -9px;
   									}
@@ -228,12 +344,28 @@ main{
   					}
   				}
   			}
+  			&.active{
+					display: block;
+  			}
+  		}
+  		&.active{
+  			h4{
+  				&:after{
+				    width:2.5em;
+   				}
+   				font{ display: none; }
+  			}
+  			> nav { display: block; }
+  		}
+  		&.fixed{ 
+  			h4{ position: fixed; top: 175px; width: 100%; z-index: 1; }	
+  			> nav{ position: fixed; top: 225px; width: 100%; z-index: 1; }	
   		}
   	}
   }
   .bets_msgs{
   	background-color: #000; box-sizing: border-box; padding: 0.907em; position: fixed; bottom: -100px; left: 0; width: 100%; opacity: 0; .transit; cursor: pointer;
-  	&.open{
+  	&.active{ 
   		bottom: 0; opacity: 1;
   	}
   	* { font-size: 21.75px; }
@@ -251,28 +383,4 @@ main{
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 480px) {
-	body{
-		zoom:0.8;
-		header{
-			nav{ 
-				margin-left: 0.6em; 
-				a:not(.menu){ font-size: 18.5px; line-height: 18.5px; margin-right: 0.4em; margin-top: 14px; }
-				a.menu{ margin-top: 8px; }
-				a.login{ margin-right: 0.8em; }
-			}
-		}
-		main section.channels ul li a h3, main section.alive_bets > nav a, main section.alive_bets article ul.body ul.l-colm li{ font-size: 18.5px; }
-		.owl-carousel .owl-item img{ height: 125px; margin: 0 auto; }
-	  main.fix_level2{
-	  	padding-top: 175px;
-	  }
-
-	}
-}
-@media screen and (min-width: 480px) {
-	main section.carrossel .carr_container{
-		max-width: 480px; margin: 0 auto;
-	}
-}
 @import url(import.less);
