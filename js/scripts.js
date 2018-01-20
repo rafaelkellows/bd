@@ -2,6 +2,7 @@ $(function(){
 	(function() {
 		var bedoo = {
 	        init: function() {
+	        	this.loading();
 	            this.menu();
 	            this.carrossel();
 	            this.channels();
@@ -25,6 +26,11 @@ $(function(){
 	        },
 	        loadJsonContent : function (argument) {
 	        	
+	        },
+	        loading : function(){
+	        	$(window).load(function(){
+					$('.loading').removeClass('active');
+	        	});
 	        },
 	        menu: function() {
 				/*if (document.documentElement.clientWidth < 480) { 

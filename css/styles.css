@@ -740,6 +740,64 @@ main .bets_msgs dl dd {
   display: inline-block;
   vertical-align: middle;
 }
+main .loading {
+  position: fixed;
+  height: 0%;
+  width: 0%;
+  top: 50%;
+  left: 50%;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+main .loading:before {
+  content: '';
+  background: #404444;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 97;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+main .loading > img {
+  z-index: 98;
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+main .loading > img.logo {
+  top: calc(20% - 42px);
+  left: calc(50% - 25px);
+}
+main .loading > img.icon {
+  top: calc(50% - 32px);
+  left: calc(50% - 32px);
+}
+main .loading.active {
+  height: 100%;
+  width: 100%;
+  z-index: 99;
+  top: 0%;
+  left: 0%;
+}
+main .loading.active:before {
+  height: 100%;
+  width: 100%;
+  z-index: 97;
+  top: 0;
+  left: 0;
+  opacity: 1;
+}
+main .loading.active > img {
+  opacity: 1;
+}
 /*******************************
           RESPONSIVE
 *******************************/

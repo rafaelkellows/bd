@@ -381,6 +381,32 @@ main{
   		dd{ width:29px; height:29px; line-height: 29px; text-align: center; margin-left:5px; background-color: @blue-1; color: @gray-1; text-transform: uppercase; .d-midle; }
   	}
   }
+  .loading{
+    position: fixed; height: 0%; width: 0%; top: 50%; left: 50%; .transit;
+    &:before{
+      content:''; background: #404444; position: fixed; height: 100%; width: 100%; z-index: 97; top: 0; left: 0;  opacity: 0; .transit;
+    }
+    > img{ 
+      z-index: 98; position: absolute; opacity: 0; .transit; 
+      &.logo{
+        top: calc(~'20% - 42px'); left: calc(~'50% - 25px'); 
+      }
+      &.icon{
+        top: calc(~'50% - 32px'); left: calc(~'50% - 32px');
+      }
+    }
+
+    &.active{
+      height: 100%; width: 100%; z-index: 99; top: 0%; left: 0%;
+      &:before{
+        height: 100%; width: 100%; z-index: 97; top: 0; left: 0; opacity: 1; 
+      }
+      > img{
+        opacity: 1; 
+      }
+    }
+
+  }
 }
 
 @import url(import.less);
